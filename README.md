@@ -38,3 +38,28 @@ If you take anything from this repo, you bear the consequences of your actions.
 #### Notes:
 - **Overfitting to room/mic:** models might learn microphone or room signature rather than keystroke quality. I don't really care too much since this is a PoC. To mitigate that, I'd have a different approach with augmentation, different microphones, keyboards, and cross-person splits.
 - **golden path/futuristic vision:** I think if vibe-coding really worked this thing would have a web interface to segment audio thumbnails and assign characters to them in real time. That way labeling could happen in real time and you could maybe decode live audio.
+
+
+
+### Setup notes for future me
+- I'm on an M1 mac
+- I did some light research and it seems like `miniforge`/`mamba` is smoother with `PyTorch`/`TensorFlow` and audio libraries compared to `venv`
+- ```
+  # download & install Miniforge (Apple Silicon build)
+  curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh
+  bash Miniforge3-MacOSX-arm64.sh
+  
+  # restart shell or run:
+  source ~/miniforge3/bin/activate
+  # now you should see a ("base" prefix)
+
+  # creating a new environment for audio work
+  mamba create -n audio python=3.11
+  mamba activate audio
+  
+  #install some utilities
+  mamba install jupyterlab matplotlib numpy scipy
+  ```
+- run `python3 test-seupt.py` to see if things are good to go
+- switch to jupyter with `jupyter lab`
+- things work so `mamba env export > environment.yml`
