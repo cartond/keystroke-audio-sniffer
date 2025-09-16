@@ -12,6 +12,7 @@ A proof of concept on how your mic and screensharing can be used against you
 - audio feature extraction
 - digital signal processing (DSP) 
     - mainly envelope and spectral flux (maybe others? maybe not these?)
+- a reminder to step away from ai tools doing any work because this is new and interesting to learn
 - some of that math I have a minor in that I probably forget
 
 #### Loose roadmap:
@@ -38,6 +39,7 @@ If you take anything from this repo, you bear the consequences of your actions.
 #### Notes:
 - **Overfitting to room/mic:** models might learn microphone or room signature rather than keystroke quality. I don't really care too much since this is a PoC. To mitigate that, I'd have a different approach with augmentation, different microphones, keyboards, and cross-person splits.
 - **golden path/futuristic vision:** I think if vibe-coding really worked this thing would have a web interface to segment audio thumbnails and assign characters to them in real time. That way labeling could happen in real time and you could maybe decode live audio.
+- **amplitude envelope**: the amplitude envelope is basically the changes in the loudness or intensity of a sound over time. detecting these can help find the keystroke events
 
 
 
