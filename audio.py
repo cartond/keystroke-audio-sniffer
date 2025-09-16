@@ -18,19 +18,17 @@ if data.ndim > 1:
 
 
 
-# 2. compute the amplitude envelope + spectral flux.
-# two methods to test with
+# 2. compute the amplitude envelope (how loud) + spectral flux (did it change suddenly).
+# alt method ignored for now: take the absolute value of the signal and then applying a smoothing filter (e.g., a rolling mean).
 from scipy.signal import hilbert
 
 analytic_signal = hilbert(data)
 amplitude_envelope = np.abs(analytic_signal)
 # x-axis
 time = np.arange(len(data)) / sample_rate
-# alt: take the absolute value of the signal and then applying a smoothing filter (e.g., a rolling mean).
-# skipping for now
 
 
-# 3. detect peaks (these would be keystrokes)
+# 3. detect peaks (these would be keystrokes) (helps reduce background noise by combining envelope and flux)
 
 
 # 4. plot waveform with detected keystrokes with some kkind of markers
