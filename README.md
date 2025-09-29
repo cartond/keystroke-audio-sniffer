@@ -4,6 +4,13 @@
 A proof of concept on how your mic and screensharing can be used against you
 ```
 
+### Progress check
+**screenshot and latest progress text**
+
+Currently, it shows peaks of amplitude and then a marker (the vert lines) with the expected keystroke. The problem is that (well one problem is that) some of the key decompresses are counting as a peak, so some single key presses look like multiple (you can see that in the thicker lines and double letter overlays)
+![curr progress pic](./img/progress.png)
+
+
 #### What I hope to get more familiar with and learn:
 - modern ML training 
     - CNNs, transfer learning, embeddings, cluster, ???
