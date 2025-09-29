@@ -52,7 +52,12 @@ plt.figure(figsize=(14, 6), facecolor='lightgray')
 
 # Waveform
 plt.plot(times, waveform, alpha=0.7, label="Waveform")
-plt.vlines(candidate_times, ymin=-1, ymax=1, color='r', alpha=0.5, label="Detected Peaks")
+plt.vlines( candidate_times, ymin=-1, ymax=1, color='r',
+    linestyle='--',   # dashed
+    alpha=0.3,        # more transparent
+    linewidth=0.8,    # thinner lines
+    label="Detected Peaks"
+)
 
 # Optional: overlay envelope
 plt.plot(amp_env_times, amp_env/amp_env.max(), color='orange', label="Amplitude Envelope (norm)")
