@@ -4,9 +4,9 @@ import librosa.display
 import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 
-# would be params, but easier to test this way
-AUDIO_FILE = "./typing_2_abc.wav"   # path to your recording
-TYPING_FILE = "./typing_2_abc.txt" # what we typed in that recording
+# would be cl commands or func. args, but easier to test this way
+AUDIO_FILE = "./training_data/typing_2_abc.wav"   # path to your recording
+TYPING_FILE = "./training_data/typing_2_abc.txt" # what we typed in that recording
 
 # some knobs for tuning
 SR_TARGET = 44100          # target sample rate
