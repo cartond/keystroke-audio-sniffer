@@ -72,6 +72,9 @@ If you take anything from this repo, you bear the consequences of your actions.
   #install some utilities
   mamba install jupyterlab matplotlib numpy scipy
   ```
-- run `python3 test-seupt.py` to see if things are good to go
+- run `python3 test-setup.py` to see if things are good to go
 - switch to jupyter with `jupyter lab`
 - things work so `mamba env export > environment.yml`
+
+Now you can run the script 
+- `python audio_sniff.py`
