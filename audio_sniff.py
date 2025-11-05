@@ -14,7 +14,7 @@ FRAME_LENGTH = 1024        # for spectral flux
 HOP_LENGTH = 512
 AMP_PEAK_HEIGHT = 0.15     # adjust for the audio
 FLUX_PEAK_HEIGHT = 0.01
-MERGE_MS = 80              # peaks within MERGE_MS will be merged to aovid double samples (e.g., press+release)
+MERGE_MS = 150              # peaks within MERGE_MS will be merged to aovid double samples (e.g., press+release)
 
 # step 1a: Load audio
 waveform, sr = librosa.load(AUDIO_FILE, sr=SR_TARGET, mono=True)
@@ -93,18 +93,23 @@ plt.vlines(merged_times, ymin=-1, ymax=1, color='r',
     label="Detected Peaks (merged)"
 )
 
-# add labels from typed text files
-for t, lab in zip(candidate_times, typed_content):
-    plt.text(
-        t,                # x position
-        1.1,              # y position (slightly above ymax=1)
-        lab,
-        ha='center',
-        va='bottom',
-        fontsize=8,
-        color='r',
-        alpha=0.7
-    )
+# add labels from typed text files, align only up to available labels
+for idx, t in enumerate(merged_times):
+    if idx < len(typed_content):
+        lab = typed_content[idx]
+    else:
+        lab = ""  # no label available
+    if lab:
+        plt.text(
+            t,                # x position
+            1.05,             # y position (slightly above ymax=1)
+            lab,
+            ha='center',
+            va='bottom',
+            fontsize=8,
+            color='r',
+            alpha=0.8
+        )
 
 # Optional: overlay envelope (normalized)
 plt.plot(amp_env_times, amp_env/amp_env.max(), color='orange', label="Amplitude Envelope (norm)")
