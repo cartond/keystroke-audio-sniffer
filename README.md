@@ -6,8 +6,8 @@ A proof of concept on how your mic and screensharing can be used against you, by
 (_screenshot and latest progress:_) currently, it shows peaks of amplitude and then a marker (the vert lines) with the expected keystroke event. 
 ![curr progress pic](./img/progress.png)
 
-The current problem is that (well one problem is that) some of the key decompresses are counting as a peak, so some single key presses look like multiple (see the zoomed in ss). You can see that in the thicker lines and double letter overlays. If you zoom in, it only has an obvious double mark in some cases. 
-![curr progress pic of bad marker](./img/progress2.png)
+The current problem is that (well one problem is that) some of the key de-compresses are counting as a peak. for example, press "e" and release. when you release from a quick press, it counts as a second peak. so some single key presses look like multiple (see the zoomed in ss below). You can see that in the thicker lines and double letter overlays. If you zoom in, it only has an obvious double mark in some cases. 
+![zoomed in - curr progress pic of bad marker](./img/progress2.png)
 
 **Next up**: cleanup my marker spots so they don't double sample, then fine tune some existing audio modelwith the typed text to start matching some spots.
 
@@ -67,14 +67,18 @@ If you take anything from this repo, you bear the consequences of your actions.
 
   # creating a new environment for audio work
   mamba create -n audio python=3.11
+
+  # activate env
   mamba activate audio
   
   #install some utilities
   mamba install jupyterlab matplotlib numpy scipy
   ```
-- run `python3 test-setup.py` to see if things are good to go
-- switch to jupyter with `jupyter lab`
-- things work so `mamba env export > environment.yml`
+- run `python3 test_setup.py` to see if things are good to go
+- ~~switch to jupyter with `jupyter lab`~~
+- things worked so I `mamba env export > environment.yml` which I don't expect to do often
 
-Now you can run the script 
-- `python audio_sniff.py`
+So for future you and me, we should be able to just
+- `mamba activate audio`
+- `python3 test_setup.py`
+- `python3 audio_sniff.py`
