@@ -2,12 +2,9 @@
 A proof of concept on how your mic and screensharing can be used against you, by applying a custom ML.
 
 
-### Progress check
-(_screenshot and latest progress:_) currently, it shows peaks of amplitude and then a marker (the vert lines) with the expected keystroke event. 
-![curr progress pic](./img/progress.png)
-
-The current problem is that (well one problem is that) some of the key de-compresses are counting as a peak. for example, press "e" and release. when you release from a quick press, it counts as a second peak. so some single key presses look like multiple (see the zoomed in ss below). You can see that in the thicker lines and double letter overlays. If you zoom in, it only has an obvious double mark in some cases. 
-![zoomed in - curr progress pic of bad marker](./img/progress2.png)
+#### Progress check
+(_screenshot and latest progress:_) currently, it shows peaks (merged via a MS window) of amplitude and then a marker (the vert lines) with the expected keystroke event. 
+![curr progress pic](./img/progress3-merged-peaks.png)
 
 **Next up**: cleanup my marker spots so they don't double sample, then fine tune some existing audio modelwith the typed text to start matching some spots.
 
